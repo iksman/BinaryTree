@@ -7,20 +7,20 @@ using System.Threading.Tasks;
 namespace BinaryTreeActual { //Integer Binary Tree
   class Program {
     static void Main(string[] args) {
-      Tree tree = new Tree(new IntNode(8, null));
-      tree.InsertInt(7);
-      tree.InsertInt(9);
-      tree.InsertInt(10);
-      Console.WriteLine(tree.getDepth(10));
-      Console.WriteLine(tree.root.childRight.childRight.value);
+      Tree tree = new Tree(20);
+      //tree.InsertInt(7);
+      //tree.InsertInt(9);
+      //tree.InsertInt(10);
+      //Console.WriteLine(tree.getDepth(10));
+      //Console.WriteLine(tree.root.childRight.childRight.value);
       //Console.ReadLine();
       while (true) {
         Console.Clear();
-        var results = tree.printFuckingEverything();
-        var groupedResults = results.GroupBy(t => t.Item1, t => t.Item2).Select(g => Tuple.Create(g.Key, string.Join(" ", g))); //Groups tuples by first item
+        var groupedResults = tree.printFuckingEverything().GroupBy(t => t.Item1, t => t.Item2).Select(g => Tuple.Create(g.Key, string.Join(" ", g))); //Groups tuples by first item
         foreach (Tuple<int, string> meme in groupedResults) {
           Console.WriteLine("Layer " + meme.Item1 + ": " + meme.Item2);
         }
+        Console.Write("\n\nNumber to insert> ");
         tree.InsertInt(int.Parse(Console.ReadLine()));
       }
     }
@@ -28,8 +28,8 @@ namespace BinaryTreeActual { //Integer Binary Tree
 
   public class Tree {
     public IntNode root;
-    public Tree(IntNode root) {
-      this.root = root;
+    public Tree(int root) {
+      this.root = new IntNode(root, null);
     }
 
     public void InsertRawNode(IntNode nodeToAdd, IntNode currentNode = null) { //Deprecated, parent must be given but cannot properly be identified with tree assigning a parent
