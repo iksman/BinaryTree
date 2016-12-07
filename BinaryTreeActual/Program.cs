@@ -26,33 +26,6 @@ namespace BinaryTreeActual { //Integer Binary Tree
     }
   }
 
-  public class Utility {
-    public Tree insert(Tree tree, IntNode nodeToAdd, IntNode currentNode = null) {
-      if (currentNode == null) {
-        currentNode = tree.root;
-      }
-
-      if (currentNode.value >= nodeToAdd.value) {
-        if (currentNode.childLeft == null) {
-          currentNode.childLeft = nodeToAdd;
-          return tree;
-        }
-        else {
-          return insert(tree, nodeToAdd, currentNode.childLeft);
-        }
-      }
-      else {  //(currentNode.value < nodeToAdd.value)
-        if (currentNode.childRight == null) {
-          currentNode.childRight = nodeToAdd;
-          return tree;
-        }
-        else {
-          return insert(tree, nodeToAdd, currentNode.childRight);
-        }
-      }
-    }
-  }
-
   public class Tree {
     public IntNode root;
     public Tree(IntNode root) {
