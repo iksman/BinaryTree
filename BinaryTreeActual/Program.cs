@@ -32,7 +32,7 @@ namespace BinaryTreeActual { //Integer Binary Tree
       this.root = root;
     }
 
-    public void InsertRawNode(IntNode nodeToAdd, IntNode currentNode = null) {
+    public void InsertRawNode(IntNode nodeToAdd, IntNode currentNode = null) { //Deprecated, parent must be given but cannot properly be identified with tree assigning a parent
       if (currentNode == null) {
         currentNode = root;
       }
