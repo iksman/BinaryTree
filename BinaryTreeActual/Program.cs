@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace BinaryTreeActual { //Integer Binary Tree
   class Program {
     static void Main(string[] args) {
-      Tree tree = new Tree(20);
+      Console.Write("Number to insert> ");
+      Tree tree = new Tree(int.Parse(Console.ReadLine()));
       //tree.InsertInt(7);
       //tree.InsertInt(9);
       //tree.InsertInt(10);
